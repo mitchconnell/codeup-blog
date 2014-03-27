@@ -21,20 +21,20 @@
 //     return "Hello, Codeup!";
 // });
 
-Route::get('/resume', function()
-{
-	return "This is my resume";
-});
-
-Route::get('/portfolio', function()
-{
-    return "This is my portfolio";
-});
-
-// Route::get('/sayhello/{name}' ,function($name)
+// Route::get('/resume', function()
 // {
-//     return View::make('my-first-view');
-// }); 
+// 	return "This is my resume";
+// });
+
+// Route::get('/portfolio', function()
+// {
+//     return "This is my portfolio";
+// });
+
+Route::get('/rolldice' ,function()
+{
+    return rand(1,6);
+}); 
 
 
 
