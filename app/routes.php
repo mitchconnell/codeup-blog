@@ -21,10 +21,10 @@ Route::get('/', function()
 //     return "Hello, Codeup!";
 // });
 
-// Route::get('/resume', function()
-// {
-// 	return "This is my resume";
-// });
+Route::get('/resume', function()
+{
+    return View::make('resume');
+});
 
 Route::get('/portfolio', function()
 {
