@@ -31,9 +31,19 @@
 //     return "This is my portfolio";
 // });
 
-Route::get('/rolldice' ,function()
+// Route::get('/rolldice/{name}' ,function($name)
+// {
+//     return View::make('my-first-view');
+// });
+
+Route::get('/rolldice/{guess}',function($guess)
 {
-    return rand(1,6);
+	$random = rand(1, 6);
+	$data = array(
+		'guess' => $guess,
+		'random' => $random
+		);
+	return View::make('roll-dice')->with($data);
 }); 
 
 
