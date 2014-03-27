@@ -11,25 +11,25 @@
 |
 */
 
-Route::get('/', function()
-{
-    return View::make('hello');
-});
+// Route::get('/', function()
+// {
+//     return View::make('hello');
+// });
 
 // Route::get('/sayhello', function()
 // {
 //     return "Hello, Codeup!";
 // });
 
-Route::get('/resume', function()
-{
-    return View::make('resume');
-});
+// Route::get('/resume', function()
+// {
+//     return View::make('resume');
+// });
 
-Route::get('/portfolio', function()
-{
-    return View::make('portfolio');
-});
+// Route::get('/portfolio', function()
+// {
+//     return View::make('portfolio');
+// });
 
 // Route::get('/rolldice/{name}' ,function($name)
 // {
@@ -44,11 +44,15 @@ Route::get('/rolldice/{guess}',function($guess)
 		'random' => $random
 		);
 	return View::make('roll-dice')->with($data);
-}); 
+});
 
+Route::get('/', 'HomeController@showWelcome');
 
+Route::get('/sayhello/{name}', 'HomeController@sayhello');
 
+Route::get('/resume/{name}', 'HomeController@showResume');
 
+Route::get('/portfolio/{name}', 'HomeController@showPortfolio');
 
 
 
