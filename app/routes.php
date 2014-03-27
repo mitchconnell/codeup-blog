@@ -11,10 +11,10 @@
 |
 */
 
-// Route::get('/', function()
-// {
-//     return View::make('hello');
-// });
+Route::get('/', function()
+{
+    return View::make('hello');
+});
 
 // Route::get('/sayhello', function()
 // {
@@ -26,10 +26,10 @@
 // 	return "This is my resume";
 // });
 
-// Route::get('/portfolio', function()
-// {
-//     return "This is my portfolio";
-// });
+Route::get('/portfolio', function()
+{
+    return View::make('portfolio');
+});
 
 // Route::get('/rolldice/{name}' ,function($name)
 // {
