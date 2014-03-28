@@ -23,6 +23,7 @@ class HomeController extends BaseController {
 
     public function showWelcome()
     {
+    	Log::info('A new post has been saved');
     	return View::make('my-first-view');
     }
 
@@ -31,7 +32,7 @@ class HomeController extends BaseController {
         $data = array('name' => $name);
         return View::make('my-first-view')->with($data);
     }
-    
+
 	public function showResume()
 	{
 		return View::make('resume');

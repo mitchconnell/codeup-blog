@@ -9,11 +9,8 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		// list all data
-		return 'this is index';
-		//$posts = Post::orderBy('created_at', 'desc')->paginate(3);
-		//return View::make('posts/index')->with(array('posts' => $posts));
-
+		$posts = Post::orderBy('created_at', 'desc')->paginate(3);
+		return View::make('posts.index')->with(array('posts' => $posts));
 	}
 
 	/**
@@ -23,9 +20,7 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-		// return view with form to create post
-		return 'this is create';
-		//return View::make('posts/create')->with('posts', new Post());
+		return View::make('posts.create')->with('post', new Post());
 	}
 
 	/**
@@ -35,9 +30,32 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//save tp database, return to index
-		return 'this is store';
-		$validator = Validator::make(Input::all(), Post::$rules);
+
+		// create the validator
+    	$validator = Validator::make(Input::all(), Post::$rules);
+
+    	// attempt validation
+    	if ($validator->fails())
+    	{
+        // validation failed, redirect to the post create page with validation errors and old inputs
+        return Redirect::back()->withInput()->withErrors($validator);
+    	
+    	} else {
+
+			// Save to db
+
+			$post = new Post();
+
+			$post->title = Input::get('title');
+			$post->body = Input::get('body');
+
+			$post->save();
+			
+
+			return Redirect::action('PostsController@index');
+	    }
+
+
 	}
 
 	/**
@@ -48,8 +66,8 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//pass id/param show that record
-		return 'this is show id'
+		$post = Post::findOrFail($id);
+		return View::make('posts.show')->with('post', $post);
 	}
 
 	/**
@@ -60,8 +78,8 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//pass id/param edit that record
-		return 'this is edit'
+		$post = Post::findOrFail($id);
+		return View::make('posts.edit')->with('post', $post);
 	}
 
 	/**
@@ -72,25 +90,33 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//checks, saves, redirects
-		return 'this is update'
-		//$post = Post::find($id);
 
-		//$validator = Validator::make(Input::all(), Post::$rules);
+		$post = Post::findOrFail($id);
 
-		//if ($validator->fails())
-		//{
-			//return Redirect::back()->withInput()->withErrors($validator);
+		// create the validator
+    	$validator = Validator::make(Input::all(), Post::$rules);
 
-		//}
-			//else
-		//{
-			//$post->title = Input::get('title');
-			//$post->body = Input::get('body');
-			//$post->save();
-			//return Redirect::action('PostsController@index');
-		//}
+    	// attempt validation
+    	if ($validator->fails())
+    	{
+        // validation failed, redirect to the post create page with validation errors and old inputs
+        return Redirect::back()->withInput()->withErrors($validator);
+    	
+    	} else {
+
+			// Save to db
+
+
+
+			$post->title = Input::get('title');
+			$post->body = Input::get('body');
+
+			$post->save();
+
+			return Redirect::action('PostsController@show', $post->id);
+	    }
 	}
+
 	/**
 	 * Remove the specified resource from storage.
 	 *
@@ -99,12 +125,9 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//delete that 1, redirect
-		return 'this is destroy'
-		//Post::find($id)->delete();
-		//return Redirect::action('PostsController@index');
-
-
+		Post::find($id)->delete();
+		return Redirect::action('PostsController@index');
 	}
+
 }
 
