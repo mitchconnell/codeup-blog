@@ -6,8 +6,9 @@
 
 	<p>
 		<a href="{{{action('PostsController@show', $post->id) }}}">{{{ $post->title }}}</a>
-		{{ $post->created_at->format('l, F jS Y @ h:i A') }}
+		{{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i A') }}
 	</p>
+	<hr>
 	@endforeach
 	{{ $posts->links() }}
 	<hr>
