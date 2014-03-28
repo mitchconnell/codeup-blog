@@ -6,7 +6,7 @@
 
 	<p>
 		<a href="{{{action('PostsController@show', $post->id) }}}">{{{ $post->title }}}</a>
-		{{ $post->created_at->format('l, F jS Y @ h:i A') }}
+		{{ $post->created_at->format('l, F jS Y @ ') }}
 	</p>
 	@endforeach
 	{{ $posts->links() }}
