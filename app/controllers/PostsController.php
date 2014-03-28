@@ -11,6 +11,9 @@ class PostsController extends \BaseController {
 	{
 		// list all data
 		return 'this is index';
+		$posts = Post::paginate(3);
+		return View::make('posts/index')->with(array('posts' => $posts));
+
 	}
 
 	/**
