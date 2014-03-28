@@ -11,8 +11,8 @@ class PostsController extends \BaseController {
 	{
 		// list all data
 		return 'this is index';
-		$posts = Post::paginate(3);
-		return View::make('posts/index')->with(array('posts' => $posts));
+		//$posts = Post::orderBy('created_at', 'desc')->paginate(3);
+		//return View::make('posts/index')->with(array('posts' => $posts));
 
 	}
 
@@ -25,6 +25,7 @@ class PostsController extends \BaseController {
 	{
 		// return view with form to create post
 		return 'this is create';
+		//return View::make('posts/create')->with('posts', new Post());
 	}
 
 	/**
@@ -36,6 +37,7 @@ class PostsController extends \BaseController {
 	{
 		//save tp database, return to index
 		return 'this is store';
+		$validator = Validator::make(Input::all(), Post::$rules);
 	}
 
 	/**
