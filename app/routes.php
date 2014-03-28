@@ -50,11 +50,10 @@ Route::get('/', 'HomeController@showWelcome');
 
 Route::get('/sayhello/{name}', 'HomeController@sayhello');
 
-Route::get('/resume/{name}', 'HomeController@showResume');
+Route::get('/resume', 'HomeController@showResume');
 
-Route::get('/portfolio/{name}', 'HomeController@showPortfolio');
+Route::get('/portfolio', 'HomeController@showPortfolio');
 
-
-
+// Route::resource('posts', 'PostsController');
 
 
