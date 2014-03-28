@@ -31,7 +31,8 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		//save tp database, return to index
+		return 'this is store';
 	}
 
 	/**
@@ -42,7 +43,8 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		//pass id/param show that record
+		return 'this is show id'
 	}
 
 	/**
@@ -53,7 +55,8 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		//pass id/param edit that record
+		return 'this is edit'
 	}
 
 	/**
@@ -64,7 +67,8 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		//checks, saves, redirects
+		return 'this is update'
 	}
 
 	/**
@@ -75,7 +79,8 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		//delete that 1, redirect
+		return 'this is destroy'
 	}
 
 }
