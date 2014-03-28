@@ -69,8 +69,23 @@ class PostsController extends \BaseController {
 	{
 		//checks, saves, redirects
 		return 'this is update'
-	}
+		//$post = Post::find($id);
 
+		//$validator = Validator::make(Input::all(), Post::$rules);
+
+		//if ($validator->fails())
+		//{
+			//return Redirect::back()->withInput()->withErrors($validator);
+
+		//}
+			//else
+		//{
+			//$post->title = Input::get('title');
+			//$post->body = Input::get('body');
+			//$post->save();
+			//return Redirect::action('PostsController@index');
+		//}
+	}
 	/**
 	 * Remove the specified resource from storage.
 	 *
@@ -81,6 +96,10 @@ class PostsController extends \BaseController {
 	{
 		//delete that 1, redirect
 		return 'this is destroy'
-	}
+		//Post::find($id)->delete();
+		//return Redirect::action('PostsController@index');
 
+
+	}
 }
+
