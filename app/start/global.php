@@ -51,6 +51,14 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 });
 
+App::missing(function($exception)
+{
+	Log::error('Something is really going wrong.');
+
+    return Response::view('errors.missing', array(), 404);
+
+});
+
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler
@@ -81,13 +89,7 @@ App::down(function()
 require app_path().'/filters.php';
 
 
-App::missing(function($exception)
-{
-	Log::error('Something is really going wrong.');
 
-    return Response::view('errors.missing', array(), 404);
-
-});
 
 
 
