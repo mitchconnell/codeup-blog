@@ -19,7 +19,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password');
 
-	
+
 
 	public function posts()
 	{
@@ -56,11 +56,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 		return $this->email;
 	}
 
-	// public function setEmailAttribute($value)
-	// {
-	// 	$this->attributes['email'] = strtolower($value);
-
-	// }
+	
 
 	public function setPasswordAttribute($value)
 	{

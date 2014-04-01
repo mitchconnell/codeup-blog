@@ -22,7 +22,7 @@
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a href="{{ action('HomeController@showWelcome')}}" class="navbar-brand">Info</a>
+          <a href="{{ action('HomeController@showWelcome')}}" class="navbar-brand">Home</a>
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -32,10 +32,13 @@
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">            
             <li>
-              <a href="../help/">Resume</a>
+              <a href="http://codeup.dev/public/bootstrap/resume.html">Resume</a>
             </li>
             <li>
               <a href="http://news.bootswatch.com">Portfolio</a>
+            </li>
+             <li>
+              <a href="../help/">Contact Me</a>
             </li>            
           </ul>
           <ul class="nav navbar-nav navbar-right">
