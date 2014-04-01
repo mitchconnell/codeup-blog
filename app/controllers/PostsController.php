@@ -15,9 +15,9 @@ class PostsController extends \BaseController {
 	 * @return Response
 	 */
 	public function index()
-	{
+	{	$
 		$posts = Post::orderBy('created_at', 'desc')->paginate(3);
-		return View::make('posts.index')->with(array('posts' => $posts));
+		return View::make('posts/index')->with(array('posts' => $posts));
 	}
 
 	/**
