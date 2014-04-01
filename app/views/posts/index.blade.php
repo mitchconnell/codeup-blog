@@ -17,7 +17,7 @@
 	</p>
 	<hr>
 	@endforeach
-	{{ $posts->links() }}
+	{{ $posts->appends(array('search' => Input::get('search')))->links() }}
 	<hr>
 	<p>
 		<a href="{{{ action('PostsController@create') }}}">Create New Post</a>
