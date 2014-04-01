@@ -17,10 +17,11 @@ class PostsController extends \BaseController {
 	public function index()
 	{
 		$search = Input::get('search');
-		$query = Post::orderBy('created_at', 'desc');
+		$query = Post::with('user')->orderBy('created_at', 'desc');
 		if (is_null($search))
 		{
 			$posts = $query->paginate(3);
+
 
 		} else {
 
@@ -69,8 +70,6 @@ class PostsController extends \BaseController {
 			$post->save();
 			return Redirect::action('PostsController@index');
 	    }
-
-
 	}
 
 	/**
