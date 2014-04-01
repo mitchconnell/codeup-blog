@@ -32,10 +32,10 @@
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">            
             <li>
-              <a href="../help/">Change</a>
+              <a href="../help/">Resume</a>
             </li>
             <li>
-              <a href="http://news.bootswatch.com">Blog</a>
+              <a href="http://news.bootswatch.com">Portfolio</a>
             </li>            
           </ul>
           <ul class="nav navbar-nav navbar-right">
