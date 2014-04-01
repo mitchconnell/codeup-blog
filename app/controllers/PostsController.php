@@ -63,13 +63,10 @@ class PostsController extends \BaseController {
 			// Save to db
 
 			$post = new Post();
-
+			$post->user_id = 1;
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
-
 			$post->save();
-			
-
 			return Redirect::action('PostsController@index');
 	    }
 
@@ -121,11 +118,7 @@ class PostsController extends \BaseController {
         return Redirect::back()->withInput()->withErrors($validator);
     	
     	} else {
-
 			// Save to db
-
-
-
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
 
@@ -134,7 +127,6 @@ class PostsController extends \BaseController {
 			return Redirect::action('PostsController@show', $post->id);
 	    }
 	}
-
 	/**
 	 * Remove the specified resource from storage.
 	 *
@@ -146,6 +138,5 @@ class PostsController extends \BaseController {
 		Post::find($id)->delete();
 		return Redirect::action('PostsController@index');
 	}
-
 }
 
