@@ -40,7 +40,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             @if (Auth::check())
-            <li><a href="{{{ action('HomeController@logout') }}}">Logout</a></li>
+            <li><a href="{{{ action('HomeController@logout') }}}">Logout ({{{ Auth::user()->email }}})</a></li>
             @else
             <li><a href="{{{ action('HomeController@showLogin') }}}">Login</a></li>
             @endif
