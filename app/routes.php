@@ -50,6 +50,11 @@ Route::get('/', 'HomeController@showWelcome');
 
 Route::get('/sayhello/{name}', 'HomeController@sayhello');
 
+Route::get('/login', 'HomeController@showLogin');
+Route::post('/login', 'HomeController@doLogin');
+
+Route::get('/logout', 'HomeController@logout');
+
 Route::get('/resume', 'HomeController@showResume');
 
 Route::get('/portfolio', 'HomeController@showPortfolio');

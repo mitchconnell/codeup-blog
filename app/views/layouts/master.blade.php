@@ -8,6 +8,7 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/signin.css">
     <script src="/js/bootstrap.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,8 +39,11 @@
             </li>            
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://builtwithbootstrap.com/" target="_blank">Put My Resume Here</a></li>
-            <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">Add link here</a></li>
+            @if (Auth::check())
+            <li><a href="{{{ action('HomeController@logout') }}}">Logout</a></li>
+            @else
+            <li><a href="{{{ action('HomeController@showLogin') }}}">Login</a></li>
+            @endif
           </ul>
         </div>
       </div>
@@ -49,7 +53,7 @@
         <div class="row">
           <div class="col-lg-6">
             <h1>@yield('h1title')</h1>
-            <p class="lead">For Codeup</p>
+            <p class="lead">My Blog Page</p>
           @yield('content')</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
