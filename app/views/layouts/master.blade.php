@@ -32,13 +32,14 @@
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">            
             <li>
-              <a href="http://codeup.dev/public/bootstrap/resume.html">Resume</a>
+              <a href="http://codeup.dev/bootstrap/resume.html">Resume</a>
             </li>
             <li>
-              <a href="http://news.bootswatch.com">Portfolio</a>
+              <a href="http://codeup.dev/bootstrap/portfolio.html">Portfolio</a>
             </li>
              <li>
               <a href="../help/">Contact Me</a>
+              <div class="col-md-4"><a href="mailto:mitchconnell@hotmail.com">mitchconnell@hotmail.com</a></div>
             </li>            
           </ul>
           <ul class="nav navbar-nav navbar-right">
