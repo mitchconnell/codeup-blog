@@ -61,6 +61,15 @@ Route::get('/portfolio', 'HomeController@showPortfolio');
 
 Route::resource('posts', 'PostsController');
 
+Route::get('/image/{size}/{file}', 'ImageController@getImage');
+
+    
+
+    
+
+
+
+
 Route::get('orm-test', function () {
     // test code here
     $post1 = new Post();

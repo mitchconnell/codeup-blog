@@ -69,6 +69,8 @@ class PostsController extends \BaseController {
 			$post->body = Input::get('body');
 			$post->save();
 			return Redirect::action('PostsController@index');
+
+			// $files = Input::file('images');
 	    }
 	}
 

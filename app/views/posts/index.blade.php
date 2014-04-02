@@ -1,9 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
-	
+	<p class="lead">My Blog Page</p>
 
-	{{ Form::open(array('action' => 'PostsController@index'), 'method' => 'GET')) }}
+	{{ Form::open(array('action' => 'PostsController@index', 'method' => 'GET')) }}
 		{{ Form::label('search', 'Search Posts') }}
 		{{ Form::text('search') }}
 		{{ Form::submit('Search') }}
@@ -16,7 +16,7 @@
 		{{ $post->created_at->format('l, F jS Y @ h:i:s A') }}
 	</p>
 	<hr>
-	@endforeach
+@endforeach
 	{{ $posts->appends(array('search' => Input::get('search')))->links() }}
 	<hr>
 	<p>
