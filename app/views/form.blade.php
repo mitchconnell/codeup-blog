@@ -9,6 +9,10 @@
 	{{ $errors->first('body', '<p><span class="help-block">:message</span></p>') }}
 </div>
 <div>
+	{{ Form::open_for_files('/image/save') }}
+	{{ Form::file('image') }}
+	{{ Form::close() }}
+	{{ $filename = Input::file('image.name') }}
 	<!-- {{ Form::open(['url' => '/upload/image', 'files' => true, 'method' => 'post']) }} -->
 
 </div>

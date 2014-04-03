@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -60,11 +59,7 @@ Route::get('/resume', 'HomeController@showResume');
 
 Route::get('/portfolio', 'HomeController@showPortfolio');
 
-
  // Route::get('/image/{size}/{file}', 'ImageController@getImage');
-
-    
-
 
 Route::get('orm-test', function () {
     // test code here
@@ -78,10 +73,3 @@ $post2->title = "Post number two";
 $post2->body = "The body for post number two.";
 $post2->save();
 });
-
-
-
-
-
-
-

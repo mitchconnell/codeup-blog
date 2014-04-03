@@ -1,7 +1,4 @@
 <?php
-
-
-
 	/*
 	|--------------------------------------------------------------------------
 	| Default Home Controller
@@ -14,7 +11,6 @@
 	|
 	|
 	*/
-
 class HomeController extends BaseController {
 
     public function sayHello($name)
@@ -58,12 +54,3 @@ class HomeController extends BaseController {
 		return Redirect::action('PostsController@index');
 	}
 }
-
-
-
-
-
-
-
-
-
