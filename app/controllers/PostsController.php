@@ -7,6 +7,8 @@ class PostsController extends \BaseController {
 		parent::__construct();
 
 		$this->beforeFilter('auth', array('except' => array('index', 'show')));
+
+		$this->beforeFilter('post.protect', array('only' => array('edit', 'update', 'destroy')));
 	}
 	/**
 	 * Display a listing of the resource.
@@ -19,13 +21,13 @@ class PostsController extends \BaseController {
 		$query = Post::with('user')->orderBy('created_at', 'desc');
 		if (is_null($search))
 		{
-			$posts = $query->paginate(3);
+			$posts = $query->paginate(4);
 
 		} else {
 
 			$posts = $query->where('title', 'LIKE', "%{$search}%")
 						   ->orWhere('body', 'LIKE', "%{$search}%")	
-							->paginate(3);
+							->paginate(4);
 		}
 		return View::make('posts.index')->with(array('posts' => $posts));
 	}

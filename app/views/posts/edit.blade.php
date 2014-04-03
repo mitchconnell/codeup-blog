@@ -3,7 +3,7 @@
 @section('content')
     <div class="col-md-4"></div>
     <div class="col-md-12" style="background-color:#ecf0f0">
-	  {{ Form::model(array('action' => array('PostsController@update',$post->id), 'method' => 'put')) }}
+	  {{ Form::model($post, array('action' => array('PostsController@update',$post->id), 'method' => 'put')) }}
 	  <fieldset>
 	    <legend>Edit Post</legend>
 	    <div class="form-group {{ $errors->has('title') ? 'has-error' : ''}}">
@@ -21,7 +21,7 @@
 	      </div>
 	    </div>
 	   <div class="col-lg-10 col-lg-offset-2">
-        {{Form::submit('Submit')}}
+        {{Form::submit('Save Changes')}}
       </div>
 	</fieldset>
 	{{ Form::close() }}
