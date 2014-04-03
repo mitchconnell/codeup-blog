@@ -45,8 +45,9 @@ Route::get('/rolldice/{guess}',function($guess)
 		);
 	return View::make('roll-dice')->with($data);
 });
+Route::resource('posts', 'PostsController');
 
-Route::get('/', 'HomeController@showWelcome');
+Route::get('/', 'PostsController@index');
 
 Route::get('/sayhello/{name}', 'HomeController@sayhello');
 
@@ -59,15 +60,10 @@ Route::get('/resume', 'HomeController@showResume');
 
 Route::get('/portfolio', 'HomeController@showPortfolio');
 
-Route::resource('posts', 'PostsController');
 
-Route::get('/image/{size}/{file}', 'ImageController@getImage');
-
-    
+ // Route::get('/image/{size}/{file}', 'ImageController@getImage');
 
     
-
-
 
 
 Route::get('orm-test', function () {

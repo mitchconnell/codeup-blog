@@ -8,7 +8,6 @@ class PostsController extends \BaseController {
 
 		$this->beforeFilter('auth', array('except' => array('index', 'show')));
 	}
-
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -22,7 +21,6 @@ class PostsController extends \BaseController {
 		{
 			$posts = $query->paginate(3);
 
-
 		} else {
 
 			$posts = $query->where('title', 'LIKE', "%{$search}%")
@@ -31,7 +29,6 @@ class PostsController extends \BaseController {
 		}
 		return View::make('posts.index')->with(array('posts' => $posts));
 	}
-
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -41,7 +38,6 @@ class PostsController extends \BaseController {
 	{
 		return View::make('posts.create')->with('post', new Post());
 	}
-
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -49,31 +45,30 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-
 		// create the validator
     	$validator = Validator::make(Input::all(), Post::$rules);
-
     	// attempt validation
     	if ($validator->fails())
     	{
+    	Session::flash('errorMessage', 'Post could not be created - see form errors');
         // validation failed, redirect to the post create page with validation errors and old inputs
         return Redirect::back()->withInput()->withErrors($validator);
     	
     	} else {
 
-			
-
 			$post = new Post();
 			$post->user_id = Auth::user()->id;
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
+			if (Input::hasFile('image'))
+			{
+				$post->assignImage(Input::hasFile('image'));
+			}
 			$post->save();
+			Session::flash('successMessages', 'Post updated successfully' );
 			return Redirect::action('PostsController@index');
-
-			// $files = Input::file('images');
 	    }
 	}
-
 	/**
 	 * Display the specified resource.
 	 *
@@ -85,7 +80,6 @@ class PostsController extends \BaseController {
 		$post = Post::findOrFail($id);
 		return View::make('posts.show')->with('post', $post);
 	}
-
 	/**
 	 * Show the form for editing the specified resource.
 	 *
@@ -97,7 +91,6 @@ class PostsController extends \BaseController {
 		$post = Post::findOrFail($id);
 		return View::make('posts.edit')->with('post', $post);
 	}
-
 	/**
 	 * Update the specified resource in storage.
 	 *
@@ -106,12 +99,9 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-
 		$post = Post::findOrFail($id);
-
 		// create the validator
     	$validator = Validator::make(Input::all(), Post::$rules);
-
     	// attempt validation
     	if ($validator->fails())
     	{
@@ -122,9 +112,7 @@ class PostsController extends \BaseController {
 			// Save to db
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
-
 			$post->save();
-
 			return Redirect::action('PostsController@show', $post->id);
 	    }
 	}

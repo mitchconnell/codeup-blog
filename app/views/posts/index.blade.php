@@ -8,7 +8,7 @@
 		{{ Form::text('search') }}
 		{{ Form::submit('Search') }}
 {{ Form::close() }}
-	<h1>List Posts</h1>
+	<h1>Posts List</h1>
 	@foreach ($posts as $post)
 	<p>
 		<a href="{{{action('PostsController@show', $post->id) }}}">{{{ $post->title }}}</a>

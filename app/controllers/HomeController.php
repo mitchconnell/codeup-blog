@@ -11,21 +11,11 @@
 	| based routes. That's great! Here is an example controller method to
 	| get you started. To route to this controller, just add the route:
 	|
-	|	Route::get('/', 'HomeController@showWelcome');
+	|
 	|
 	*/
 
-	
-
-
-
 class HomeController extends BaseController {
-
-    public function showWelcome()
-    {
-    	Log::info('A new post has been saved');
-    	return View::make('my-first-view');
-    }
 
     public function sayHello($name)
     {

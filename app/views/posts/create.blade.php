@@ -5,7 +5,7 @@
     <div class="col-md-12" style="background-color:#ecf0f0">
 	  {{ Form::open(array('action' => array('PostsController@store'),'files' => true)) }}
 	  <fieldset>
-	    <legend>Create A Blog Post</legend>
+	    <legend>Create Post</legend>
 	    <div class="form-group {{ $errors->has('title') ? 'has-error' : ''}}">
 	      {{ Form::label('title', 'Title') }}
 	      <div class="col-lg-10">

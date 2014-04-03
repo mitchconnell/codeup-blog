@@ -21,4 +21,20 @@ class Post extends BaseModel {
 	    $utc = Carbon::createFromFormat($this->getDateFormat(), $value);
 	    return $utc->setTimezone('America/Chicago'); 
 	}
+
+	public function assignImage($inputFile)
+	{			
+		$imagePath = base_path() . '/public/images/';
+		$extension = $inputFile('image')->getClientOriginalExtension();
+		$imageName = uniqid() . '.' . $extension;
+		$fullPathToImage = $imagePath . $imageName;
+		$inputFile->move($imagePath, $fullPathToImage);
+		$post->image = '/image/' . $imageName;			
+			
+	}
 }
+
+
+
+
+

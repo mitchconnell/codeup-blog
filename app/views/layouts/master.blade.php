@@ -10,7 +10,7 @@
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
+<link rel="stylesheet" type="text/css" href="/css/blog.css">
 <!-- Latest compiled and minified JavaScript -->
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   </head>
@@ -18,9 +18,9 @@
     <script src="../assets/js/bsa.js"></script>
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
-        <div class="margin-top: 20px;">
+
         <div class="navbar-header">
-          <a href="{{ action('HomeController@showWelcome')}}" class="navbar-brand">Home</a>
+          <a href="{{ action('PostsController@index')}}" class="navbar-brand">Home</a>
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
