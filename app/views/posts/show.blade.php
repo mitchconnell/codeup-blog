@@ -8,10 +8,10 @@
 				<a href="{{{ action('PostsController@index') }}}">Return To Post</a>
 		</p>
 			<button type="button" class="btn btn-default btn-lg">
-  				<span class="glyphicon glyphicon-edit"><a href="{{{ action('PostsController@edit', $post->id ) }}}">Edit</a></span> 
+  				<span class="glyphicon glyphicon-edit"><a href="{{{ action('PostsController@edit', $post->id ) }}}">Edit Post</a></span> 
 			</button>
 			<button type="button" class="btn btn-default btn-lg">
-  				<span class="glyphicon glyphicon-trash"><a href="{{{ action('PostsController@destroy') }}}">Trash</a></span> 
+  				<span class="glyphicon glyphicon-trash"><a href="{{{ action('PostsController@destroy') }}}">Delete Post</a></span> 
 			</button>
 		
 @stop
