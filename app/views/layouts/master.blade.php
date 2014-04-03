@@ -36,7 +36,7 @@
               <a href="http://codeup.dev/bootstrap/portfolio.html">Portfolio</a>
             </li>
              <li>
-              <a href="../help/">Contact Me</a>
+              <a>Contact Me</a>
               <div class="col-md-4"><a href="mailto:mitchconnell@hotmail.com">mitchconnell@hotmail.com</a></div>
             </li>            
           </ul>
